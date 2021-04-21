@@ -1,0 +1,34 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #ce6045;
+  
+  }
+  
+  .links {
+    display: flex;
+    list-style-type: none;
+    padding:10px;
+  }
+  
+  .link{
+    margin: 2px 12px;
+  }
+  
+  .textLink{
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  
+  .logo {
+    width: 50px;
+    padding-left: 10px;
+  }
+  
+  .logoCart {
+    width: 35px;
+    padding-right: 10px;
+  }

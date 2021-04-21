@@ -1,30 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {Navbar} from "./components/CartWidget/CartWidget"
+import {ItemListConteiner} from "./components/ItemListConteiner/ItemListConteiner"
 
 function App() {
+
+  const greeting = [
+    {
+      saludo: "Bienvenidos",
+    }
+  ]
   return (
     <div className="App">
-      <header className="topbar">
-        <img src={logo} className="logo" alt="logo" />
-
-        <nav className="navigation">
-          <ul className="links">
-            <li className="link">
-              <a className="textLink" href=" ">Home</a>
-            </li>
-            <li className="link">
-              <a className="textLink" href=" ">Tienda</a>
-            </li>
-            <li className="link">
-              <a className="textLink" href=" ">Sobre Nosotros</a>
-            </li>
-            <li className="link">
-              <a className="textLink" href=" ">Contacto</a>
-            </li>
-           </ul>
-        </nav>
-
-      </header>
+      <Navbar/>
+      <ItemListConteiner
+      saludo = {greeting[0].saludo}
+      
+      
+      />
     </div>
   );
 }
