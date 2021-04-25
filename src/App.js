@@ -1,6 +1,7 @@
 import './App.css';
-import {Navbar} from "./components/CartWidget/CartWidget"
+import {Navbar} from "./components/Navbar/Navbar"
 import {ItemListConteiner} from "./components/ItemListConteiner/ItemListConteiner"
+import {ItemCount} from "./components/ItemCount/ItemCount"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       
       
       />
+      <ItemCount/>
     </div>
   );
 }

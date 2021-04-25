@@ -1,4 +1,4 @@
-import "./CartWidget.css"
+import "./Navbar.css"
 import logo from "../../logoAnimalPride.ico"; 
 import logoCart from "../../logoCart.ico";
 

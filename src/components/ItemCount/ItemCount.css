@@ -1,0 +1,38 @@
+.itemCount{
+    justify-content: center;
+}
+
+.title{
+font-size: 15px;
+}
+
+.countProducts{
+    background-color: #e6dfdffd;
+    display: flex;
+    justify-content: space-between;   
+    width: 100px;
+    height: 25px; 
+    padding: 10px;
+    
+}
+
+.subtractProducts{
+    background-color: #000000;
+    color:#ffffff;
+    
+}
+.amount{
+    
+}
+
+.addProducts{
+    background-color: #000000;
+    color:#ffffff;
+}
+
+.addToCart{
+    background-color: #030318;
+    color:#ffffff;
+
+
+}
