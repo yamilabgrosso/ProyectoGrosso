@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./ItemList.css"
-import{Item} from "./Item"
+import{ItemDetail} from "./ItemDetail"
 
-export const ItemList = (props) => {
+export const ItemDetailConteiner = (props) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -22,13 +21,13 @@ export const ItemList = (props) => {
             {
                 products.length > 0 ? (
                     products.map((products) =>
-                        <Item 
+                        <ItemDetail 
                         title={products.title}
                         picture={products.picture}
                         price={products.price.amount}
                         /> 
                     )   
-                ) : (<p>Ups! estamos cargando los productos</p>
+                ) : (<p> No hay productos para cargar</p>
 
                 )}
         </div>

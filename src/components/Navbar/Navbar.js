@@ -1,5 +1,5 @@
 import "./Navbar.css"
-import logo from "../../logoAnimalPride.ico"; 
+import logo from "../../logostore.jpg"; 
 import logoCart from "../../logoCart.ico";
 
 export const Navbar = () => {

@@ -21,7 +21,6 @@ export const ItemCount = (props) => {
 return (
 
 <div className="itemCount">
-    <h6 className= "title">Zapatillas Jordan 1</h6>
     <div className= "countProducts">
     <button className="subtractProducts" onClick={subtractProducts}>-</button>
     <p className="amount">{initial}</p>

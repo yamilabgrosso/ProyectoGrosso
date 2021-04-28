@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #ce6045;
+    background-color: #d8d7d6;
   
   }
   
@@ -19,13 +19,14 @@
   
   .textLink{
     text-decoration: none;
-    color: #ffffff;
+    color: #080808;
   }
   
   
   .logo {
-    width: 50px;
-    padding-left: 10px;
+    width: 60px;
+    padding: 10px;
+    border-radius: 50%;
   }
   
   .logoCart {

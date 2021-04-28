@@ -1,0 +1,27 @@
+.cardConteiner{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    margin: 2%;
+ 
+}
+
+
+.card{
+    border: 1px solid #dbdadaf6;
+}
+
+.cardPicture{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: auto;
+}
+
+.cardTitle{
+    text-align: center;
+}
+
+.cardPrice{
+    text-align: center;
+}
