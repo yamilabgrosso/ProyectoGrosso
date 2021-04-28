@@ -1,0 +1,47 @@
+{"productList": [
+
+{
+    "id":"001",
+    "title": "Jersery Atlanta Hawks white",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/001.jpg"
+},
+{
+    "id":"002",
+    "title": "Jersery Atlanta Hawks red",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/002.jpg"
+},
+{
+    "id":"003",
+    "title": "Jersery Atlanta Hawks white",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/003.jpg"
+},
+{
+    "id":"004",
+    "title": "Jersery Atlanta Hawks white",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/004.jpg"
+},
+{
+    "id":"005",
+    "title": "Jersery Atlanta Hawks white",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/005.jpg"
+},
+{
+    "id":"006",
+    "title": "Jersery Atlanta Hawks white",
+    "description":"Men's Atlanta Hawks Trae Young Nike White 2020/21 Swingman Jersey - Association Edition",
+    "price":120,
+    "pictureUrl":"./imagenes/006.jpg"
+}
+]
+
+}
