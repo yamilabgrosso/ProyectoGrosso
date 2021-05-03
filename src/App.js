@@ -1,27 +1,23 @@
 import './App.css';
-import {Navbar} from "./components/Navbar/Navbar"
-import {ItemListConteiner} from "./components/ItemListConteiner/ItemListConteiner"
-import {ItemCount} from "./components/ItemCount/ItemCount"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Home } from './pages/Home';
+import { ProductsDetail} from "./pages/ProductsDetail";
+
 
 
 function App() {
-
-  const greeting = [
-    {
-      saludo: "Bienvenidos",
-    }
-  ]
-
   return (
-    <div className="App">
-      <Navbar/>
-      <ItemListConteiner
-      saludo = {greeting[0].saludo}
-  
-      
-      />
-      <ItemCount/>
-    </div>
+    <BrowserRouter>
+    
+      <Switch>
+        <Route exact path="/">
+            <Home/>
+        </Route>
+        <Route path="/products/:productId">
+          <ProductsDetail/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,37 @@
+.detailContainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+
+}
+
+
+
+.bodyDetail{
+    margin-left: 10px;
+
+}
+.titleDetail{
+max-width: 350px;
+}
+
+.imageDetail{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.areaDetail{
+    grid-column-start: 2;
+
+}
+
+
+.descriptionDetail{
+
+}
+
+.priceDetail{
+
+}

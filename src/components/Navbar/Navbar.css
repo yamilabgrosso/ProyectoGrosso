@@ -1,20 +1,46 @@
+.container{
+  
+
+}
+
+.topbarIntro{
+
+
+}
+
+.logo {
+  width: 60px;
+  padding-top: 10px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.name{
+  text-align: center;
+  font-family:monospace;
+}
+
+
 .topbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 10px;
     align-items: center;
     width: 100%;
-    background-color: #d8d7d6;
-  
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+
   }
-  
   .links {
     display: flex;
     list-style-type: none;
-    padding:10px;
   }
   
   .link{
-    margin: 2px 12px;
+    margin: 2px 30px;
   }
   
   .textLink{
@@ -22,14 +48,7 @@
     color: #080808;
   }
   
-  
-  .logo {
-    width: 60px;
-    padding: 10px;
-    border-radius: 50%;
-  }
-  
   .logoCart {
-    width: 35px;
-    padding-right: 10px;
+    width: 1.5rem;
+    ;
   }

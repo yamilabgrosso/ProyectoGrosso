@@ -1,37 +1,38 @@
-.itemCount{
-    justify-content: center;
-}
+.itemCount{  
 
-.title{
-font-size: 15px;
 }
 
 .countProducts{
-    background-color: #e6dfdffd;
     display: flex;
-    justify-content: space-between;   
-    width: 100px;
-    height: 25px; 
-    padding: 10px;
+    justify-content:space-around;
+    padding: 0px 50px;   
     
 }
 
 .subtractProducts{
-    background-color: #000000;
-    color:#ffffff;
-    
+    background-color:#ffffff;
+    color:#030318;
+    border: none;    
 }
    
-
-
 .addProducts{
-    background-color: #000000;
-    color:#ffffff;
+    background-color:#ffffff;
+    color:#030318;
+    border: none;
+}
+
+.botonAddToCart{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .addToCart{
-    background-color: #030318;
-    color:#ffffff;
+    
+    background-color:#ffffff;
+    color:  #030318;
+  
+
 
 
 }
