@@ -1,23 +1,15 @@
 import { Navbar } from "../../src/components/Navbar/Navbar"
-import { ItemListConteiner } from "../../src/components/ItemListConteiner/ItemListConteiner"
+import {Footer} from "../../src/components/Footer/Footer"
+import { Promo } from "../../src/components/Promo/Promo"
 
 export function Home() {
-
-  const greeting = [
-    {
-      saludo: "Bienvenidos",
-    }
-  ]
 
   return (
   
           <div>
-            <Navbar />
-            <ItemListConteiner
-              saludo={greeting[0].saludo}
-
-
-            />
+            <Navbar/>
+            <Promo/>
+            <Footer/>
           </div>
     )
     }

@@ -1,0 +1,16 @@
+
+.main-footer {
+    color: white;
+    background-color: #020215;
+    padding-top: 3em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+ .row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin: 2%;
+ } 

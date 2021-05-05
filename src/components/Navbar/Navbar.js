@@ -1,36 +1,60 @@
 import "./Navbar.css"
-import logo from "../../logostore.jpg";
+import logo from "../../logostore2.png";
 import logoCart from "../../logoCart.ico";
+import lupa from "../../lupa.png";
+import {NavLink} from "react-router-dom"
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   return (
     <header className="container">
-      
-      <div className="topbarIntro">
-        <img src={logo} className="logo" alt="logo" />
-        <h4 className="name">LEBRONSTORE</h4>
-      </div>
-      
+
       <div className="topbar">
         <nav className="navigation">
           <ul className="links">
             <li className="link">
-              <a className="textLink" href=" ">Home</a>
+            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/'>Home</NavLink> 
             </li>
             <li className="link">
-              <a className="textLink" href=" ">Tienda</a>
+            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/products'>Store</NavLink>
             </li>
             <li className="link">
-              <a className="textLink" href=" ">Sobre Nosotros</a>
+              <a className="textLink" href=" ">Help</a>
             </li>
             <li className="link">
-              <a className="textLink" href=" ">Contacto</a>
+              <img src={logoCart} className="logoCart" alt="logo cart" />
             </li>
           </ul>
         </nav>
-
-        <img src={logoCart} className="logoCart" alt="logo cart" />
       </div>
+
+      <div className="logoandseeker">
+      <div className="topbarIntro">
+        <img src={logo} className="logo" alt="logo" />
+        <h4 className="name">LEBRONSTORE</h4>
+        </div>
+        <div className="seeker">
+          <input className="search"></input>
+          <img src={lupa} className="lupa" alt="lupa" />
+        </div>
+      </div>
+
+
+      <div className="topbarCategories">
+        <nav className="navigation">
+          <ul className="links">
+            <li className="linkCategories">
+              <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/jersey'>JERSEYS</NavLink>
+            </li>
+            <li className="linkCategories">
+            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/gap'>GAP</NavLink>
+            </li>
+            <li className="linkCategories">
+            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/t-shirts'>T-SHIRTS</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
     </header>
 
   )
