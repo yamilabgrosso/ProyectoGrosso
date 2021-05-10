@@ -12,7 +12,7 @@ export const ItemCount = ({add, substract, count, onAdd}) => {
                 <button className="addProducts" onClick={add}>+</button>
             </div>
             <div className="botonAddToCart">
-            <button className="addToCart" onClick={onAdd}>Add {count} to Cart</button>
+            <button className="addToCart" onClick={onAdd}>Add to Cart</button>
         </div>
         </div>
        

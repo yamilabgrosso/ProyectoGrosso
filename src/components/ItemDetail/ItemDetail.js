@@ -46,15 +46,17 @@ export const ItemDetail = (props) => {
       <div className="areaDetail">
         <p className="descriptionDetail">Soy un buen producto</p>
         <p className="priceDetail">$ {props.price}</p>
+        
+        {(buttonAddToCart) === false ? (
         <ItemCount
           add={addQuantity}
           substract={substractQuantity}
           count={stock}
           onAdd={buyThisQuantity}
         />
-        {(buttonAddToCart) === true ? (
+        ):(
           <Link to={`/cart`}><button>Finalizar compra</button></Link>
-        ) : (<h6>Gracias por elegir nuestros productos</h6>)}
+        ) }
           
       </div>
     </div>
