@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { ProductsDetail} from "./pages/ProductsDetail";
 import {Products} from "../src/pages/Products"
 import {Store} from "../src/pages/Store"
+import {Cart} from "../src/pages/Cart"
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/products">
           <Store/>
+        </Route>
+        <Route path="/cart">
+          <Cart/>
         </Route>
 
       </Switch>
