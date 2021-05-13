@@ -2,7 +2,7 @@ import "./ItemList.css"
 import { Index } from "../Index"
 import { useState } from 'react';
 import { useEffect } from 'react';
-import {Item} from "../Item/Item"
+import { Item } from "../Item/Item"
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
@@ -23,16 +23,17 @@ export const ItemList = () => {
 
   return (
     <div className='cardConteiner'>
-      {products.map((product) => 
-      <div>
-                              <Item  productId={product.id}
-                        name={product.name}
-                        picture={product.image}
-                        price={`$ ${product.price}`}
-                        /> 
-            </div>
-  )
-}
+      {products.map((product) =>
+        <div>
+          <Item
+           productId={product.id}
+            name={product.name}
+            picture={product.image}
+            price={`$ ${product.price}`}
+          />
+        </div>
+      )
+      }
     </div >
   )
 }

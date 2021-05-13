@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { ItemCount } from "../ItemCount/ItemCount"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 // import { useEffect } from 'react';
+import {useContext } from 'react';
+import {CartContext} from "../../context/cartContext"
 
-
-export const ItemDetail = (props) => {
+ 
+export const ItemDetail = ({props ,product}) => {
   const [buttonAddToCart, setButtonAddToCart] = useState(false)
   const [stock, setStock] = useState(0)
  
@@ -28,9 +30,12 @@ export const ItemDetail = (props) => {
   const buyThisQuantity = () => {
     if (stock >= 1) {
       setButtonAddToCart(true)
+        addItem(product)
     }
   }
 
+  const { addItem } = useContext (CartContext)
+  
   // useEffect(() => {
  
   //   setButtonAddToCart(buttonAddToCart)
@@ -55,7 +60,9 @@ export const ItemDetail = (props) => {
           onAdd={buyThisQuantity}
         />
         ):(
-          <Link to={`/cart`}><button>Finalizar compra</button></Link>
+          // <Link to={`/cart`}><button>Finalizar compra</button></Link>
+          <button className='addCart' onClick={() => addItem(product)}>Finalizar compra</button>
+        
         ) }
           
       </div>

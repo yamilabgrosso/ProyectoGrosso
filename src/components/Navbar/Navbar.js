@@ -1,8 +1,8 @@
 import "./Navbar.css"
 import logo from "../../logostore2.png";
-import logoCart from "../../logoCart.ico";
 import lupa from "../../lupa.png";
 import {NavLink} from "react-router-dom"
+import {CartMade} from "../CartMade/CartMade"
 
 export const Navbar = (props) => {
   return (
@@ -21,7 +21,7 @@ export const Navbar = (props) => {
               <a className="textLink" href=" ">Help</a>
             </li>
             <li className="link">
-              <img src={logoCart} className="logoCart" alt="logo cart" />
+              <CartMade/>
             </li>
           </ul>
         </nav>

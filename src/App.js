@@ -5,12 +5,13 @@ import { ProductsDetail} from "./pages/ProductsDetail";
 import {Products} from "../src/pages/Products"
 import {Store} from "../src/pages/Store"
 import {Cart} from "../src/pages/Cart"
+import {CartContextProvider} from "../src/context/cartContext"
 
 
 function App() {
   return (
     <BrowserRouter>
-    
+    <CartContextProvider>
       <Switch>
         <Route exact path="/">
             <Home/>
@@ -29,6 +30,7 @@ function App() {
         </Route>
 
       </Switch>
+      </CartContextProvider>
     </BrowserRouter>
   );
 }
