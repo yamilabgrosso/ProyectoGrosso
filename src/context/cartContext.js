@@ -4,7 +4,7 @@ export const CartProvider = CartContext.Provider
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([])
-  const [quantity, setQuantity] = useState(1)
+  const [quantities, setQuantities] = useState(1)
 
   const isInCard = (id) => {
     return cart.find((product) => id === product.id);
@@ -13,7 +13,7 @@ export const CartContextProvider = ({ children }) => {
   debugger
   const addItem = (product, quantity) => {
     if (isInCard(product.id)) {
-      setQuantity(product.quantity >= quantity);
+      setQuantities(product.quantity >= quantity);
     } else {
       product.quantity = quantity
       setCart([...cart, product])
@@ -21,7 +21,6 @@ export const CartContextProvider = ({ children }) => {
   }
 
   console.log(cart);
-
 
   const removeFromCart = (productId) => {
     const newCart = cart.filter((product) => product.id !== productId)
@@ -33,12 +32,10 @@ export const CartContextProvider = ({ children }) => {
 
   };
 
-  console.log(countProd)
-
   const clearCart = () => { setCart([]) }
 
   return (
-    <CartProvider value={{ cart, isInCard, clearCart, addItem, removeFromCart, countProd, quantity }}>
+    <CartProvider value={{ cart, isInCard, clearCart, addItem, removeFromCart, countProd, quantities, setQuantities }}>
       {children}
     </CartProvider>
   )

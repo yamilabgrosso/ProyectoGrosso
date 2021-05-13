@@ -28,9 +28,10 @@ export const ItemDetail = ({ props, product }) => {
   }
 
   const buyThisQuantity = () => {
-    if (stock >= 1) {
+    if (stock !== 0) {
       setButtonAddToCart(true)
-      addItem(setStock)
+      addItem(product, stock)
+      setStock(stock)
     }
   }
 
@@ -61,7 +62,7 @@ export const ItemDetail = ({ props, product }) => {
           />
         ) : (
           // <Link to={`/cart`}><button>Finalizar compra</button></Link>
-          <button className='addCart' onClick={() => addItem(product, stock)}>Finalizar compra</button>
+          <button className='addCart' onClick={() => addItem(product, setStock)}>Finalizar compra</button>
 
         )}
 

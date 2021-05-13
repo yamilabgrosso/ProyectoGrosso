@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 
 export const CartMade = () => {
   const {countProd} = useContext(CartContext)
-  
+  console.log(countProd)
   return (
     <div>
       <NavLink activeClassName="" className="" exact to='/cart'> 
@@ -14,4 +14,5 @@ export const CartMade = () => {
       
     </div>
   );
+  
 }
