@@ -15,7 +15,6 @@ const {cart, removeFromCart, clearCart} = useContext(CartContext)
           return (
             <div id={itemInCart.id}>
               <p>{itemInCart.name}</p>
-              {/* <img>{itemInCart.image}</img> */}
               <p>{itemInCart.quantity}</p>
               <button onClick={() => removeFromCart(itemInCart.id)}>Eliminar producto</button>
             </div>

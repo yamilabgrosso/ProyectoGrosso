@@ -1,36 +1,48 @@
 import "./Navbar.css"
 import logo from "../../logostore2.png";
 import lupa from "../../lupa.png";
-import {NavLink} from "react-router-dom"
-import {CartMade} from "../CartMade/CartMade"
+import { NavLink } from "react-router-dom"
+import { useContext } from 'react'
+import { CartContext } from '../../context/cartContext';
+
+import logoCart from "../../logoCart.ico";
+
+
 
 export const Navbar = (props) => {
+  const {countProd} = useContext(CartContext) 
+ 
   return (
+
+    
     <header className="container">
 
       <div className="topbar">
         <nav className="navigation">
           <ul className="links">
             <li className="link">
-            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/'>Home</NavLink> 
+              <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/'>Home</NavLink>
             </li>
             <li className="link">
-            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/products'>Store</NavLink>
+              <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/products'>Store</NavLink>
             </li>
             <li className="link">
               <a className="textLink" href=" ">Help</a>
             </li>
             <li className="link">
-              <CartMade/>
+              <NavLink activeClassName="" className="" exact to='/cart'>
+                <img src={logoCart} className="logoCart" alt="logo cart" />
+                ({countProd()})
+              </NavLink>
             </li>
           </ul>
         </nav>
       </div>
 
       <div className="logoandseeker">
-      <div className="topbarIntro">
-        <img src={logo} className="logo" alt="logo" />
-        <h4 className="name">LEBRONSTORE</h4>
+        <div className="topbarIntro">
+          <img src={logo} className="logo" alt="logo" />
+          <h4 className="name">LEBRONSTORE</h4>
         </div>
         <div className="seeker">
           <input className="search"></input>
@@ -46,10 +58,10 @@ export const Navbar = (props) => {
               <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/jersey'>JERSEYS</NavLink>
             </li>
             <li className="linkCategories">
-            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/gap'>GAP</NavLink>
+              <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/gap'>GAP</NavLink>
             </li>
             <li className="linkCategories">
-            <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/t-shirts'>T-SHIRTS</NavLink>
+              <NavLink activeClassName="linkCategories" className="linkCategories" exact to='/categories/t-shirts'>T-SHIRTS</NavLink>
             </li>
           </ul>
         </nav>

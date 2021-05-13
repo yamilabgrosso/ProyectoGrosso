@@ -13,7 +13,7 @@ export const CartContextProvider = ({ children }) => {
   debugger
   const addItem = (product, quantity) => {
     if (isInCard(product.id)) {
-      setQuantities(product.quantity >= quantity);
+      setQuantities(product.quantity += quantity);
     } else {
       product.quantity = quantity
       setCart([...cart, product])
@@ -28,7 +28,7 @@ export const CartContextProvider = ({ children }) => {
   }
 
   const countProd = () => {
-    return cart.reduce((acc, product) => (acc >= product.quantity), 0);
+    return cart.reduce((acc, product) => (acc += product.quantity), 0);
 
   };
 
