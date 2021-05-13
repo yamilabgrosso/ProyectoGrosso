@@ -23,9 +23,10 @@ export const ItemList = () => {
 
   return (
     <div className='cardConteiner'>
-      {products.map((product) =>
+      {products.map((product, key) =>
         <div>
           <Item
+          key={key}
            productId={product.id}
             name={product.name}
             picture={product.image}

@@ -2,14 +2,14 @@ import { useState } from "react"
 import { ItemCount } from "../ItemCount/ItemCount"
 // import { Link } from "react-router-dom"
 // import { useEffect } from 'react';
-import {useContext } from 'react';
-import {CartContext} from "../../context/cartContext"
+import { useContext } from 'react';
+import { CartContext } from "../../context/cartContext"
 
- 
-export const ItemDetail = ({props ,product}) => {
+
+export const ItemDetail = ({ props, product }) => {
   const [buttonAddToCart, setButtonAddToCart] = useState(false)
   const [stock, setStock] = useState(0)
- 
+
 
   const addQuantity = () => {
     if (stock <= 4) {
@@ -30,16 +30,16 @@ export const ItemDetail = ({props ,product}) => {
   const buyThisQuantity = () => {
     if (stock >= 1) {
       setButtonAddToCart(true)
-        addItem(product)
+      addItem(setStock)
     }
   }
 
-  const { addItem } = useContext (CartContext)
-  
+  const { addItem } = useContext(CartContext)
+
   // useEffect(() => {
- 
+
   //   setButtonAddToCart(buttonAddToCart)
-  
+
   // })
 
   return (
@@ -51,20 +51,20 @@ export const ItemDetail = ({props ,product}) => {
       <div className="areaDetail">
         <p className="descriptionDetail">Soy un buen producto</p>
         <p className="priceDetail">$ {props.price}</p>
-        
+
         {(buttonAddToCart) === false ? (
-        <ItemCount
-          add={addQuantity}
-          substract={substractQuantity}
-          count={stock}
-          onAdd={buyThisQuantity}
-        />
-        ):(
+          <ItemCount
+            add={addQuantity}
+            substract={substractQuantity}
+            count={stock}
+            onAdd={buyThisQuantity}
+          />
+        ) : (
           // <Link to={`/cart`}><button>Finalizar compra</button></Link>
-          <button className='addCart' onClick={() => addItem(product)}>Finalizar compra</button>
-        
-        ) }
-          
+          <button className='addCart' onClick={() => addItem(product, stock)}>Finalizar compra</button>
+
+        )}
+
       </div>
     </div>
   )

@@ -1,9 +1,8 @@
 import { createContext, useEffect, useState } from 'react'
-
 export const CartContext = createContext()
 export const CartProvider = CartContext.Provider
 
-export const CartContextProvider = ( {children} ) => {
+export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([])
   const [quantity, setQuantity] = useState(1)
 
@@ -11,32 +10,35 @@ export const CartContextProvider = ( {children} ) => {
     return cart.find((product) => id === product.id);
   };
 
-debugger
+  debugger
   const addItem = (product, quantity) => {
-    if (isInCard(product.id)) { 
+    if (isInCard(product.id)) {
       setQuantity(product.quantity >= quantity);
-    } else  {
+    } else {
       product.quantity = quantity
       setCart([...cart, product])
-    }}
+    }
+  }
 
-console.log(cart);
+  console.log(cart);
 
 
-  const removeFromCart =(productId) =>{
+  const removeFromCart = (productId) => {
     const newCart = cart.filter((product) => product.id !== productId)
     setCart(newCart)
   }
 
   const countProd = () => {
     return cart.reduce((acc, product) => (acc >= product.quantity), 0);
+
   };
 
+  console.log(countProd)
 
-  const clearCart =() => { setCart([])}
+  const clearCart = () => { setCart([]) }
 
-  return(
-    <CartProvider value={ { cart, isInCard,clearCart,addItem,removeFromCart, countProd, quantity} }>
+  return (
+    <CartProvider value={{ cart, isInCard, clearCart, addItem, removeFromCart, countProd, quantity }}>
       {children}
     </CartProvider>
   )
