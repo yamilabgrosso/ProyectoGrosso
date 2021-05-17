@@ -1,7 +1,6 @@
-import { useState } from "react"
+import { useState} from "react"
 import { ItemCount } from "../ItemCount/ItemCount"
-// import { Link } from "react-router-dom"
-// import { useEffect } from 'react';
+import { Link } from "react-router-dom"
 import { useContext } from 'react';
 import { CartContext } from "../../context/cartContext"
 
@@ -14,17 +13,13 @@ export const ItemDetail = ({ props, product }) => {
   const addQuantity = () => {
     if (stock <= 4) {
       setStock(stock + 1)
-    } else {
-      alert("no hay mas")
-    }
+    } 
   }
 
   const substractQuantity = () => {
     if (stock >= 1) {
       setStock(stock - 1)
-    } else {
-      alert("no")
-    }
+    } 
   }
 
   const buyThisQuantity = () => {
@@ -32,16 +27,13 @@ export const ItemDetail = ({ props, product }) => {
       setButtonAddToCart(true)
       addItem(product, stock)
       setStock(stock)
-    }
-  }
+  }}
 
-  const { addItem } = useContext(CartContext)
 
-  // useEffect(() => {
 
-  //   setButtonAddToCart(buttonAddToCart)
 
-  // })
+  const {addItem, quantities} = useContext(CartContext)  
+  console.log(quantities)
 
   return (
     <div className="detailContainer">
@@ -53,7 +45,7 @@ export const ItemDetail = ({ props, product }) => {
         <p className="descriptionDetail">Soy un buen producto</p>
         <p className="priceDetail">$ {props.price}</p>
 
-        {(buttonAddToCart) === false ? (
+        {(buttonAddToCart) === false  ? (
           <ItemCount
             add={addQuantity}
             substract={substractQuantity}
@@ -61,10 +53,9 @@ export const ItemDetail = ({ props, product }) => {
             onAdd={buyThisQuantity}
           />
         ) : (
-          // <Link to={`/cart`}><button>Finalizar compra</button></Link>
-          <button className='addCart' onClick={() => addItem(product, setStock)}>Finalizar compra</button>
-
+         <Link to= "/cart" ><button className='addCart' >Finalizar compra</button></Link>
         )}
+
 
       </div>
     </div>

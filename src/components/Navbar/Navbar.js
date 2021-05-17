@@ -2,15 +2,12 @@ import "./Navbar.css"
 import logo from "../../logostore2.png";
 import lupa from "../../lupa.png";
 import { NavLink } from "react-router-dom"
-import { useContext } from 'react'
-import { CartContext } from '../../context/cartContext';
+import {CartWidget} from "../CartWidget/CartWidget"
 
-import logoCart from "../../logoCart.ico";
 
 
 
 export const Navbar = (props) => {
-  const {countProd} = useContext(CartContext) 
  
   return (
 
@@ -30,10 +27,7 @@ export const Navbar = (props) => {
               <a className="textLink" href=" ">Help</a>
             </li>
             <li className="link">
-              <NavLink activeClassName="" className="" exact to='/cart'>
-                <img src={logoCart} className="logoCart" alt="logo cart" />
-                ({countProd()})
-              </NavLink>
+              <CartWidget/>
             </li>
           </ul>
         </nav>

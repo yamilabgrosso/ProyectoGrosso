@@ -4,7 +4,7 @@ import { Home } from './pages/Home';
 import { ProductsDetail} from "./pages/ProductsDetail";
 import {Products} from "../src/pages/Products"
 import {Store} from "../src/pages/Store"
-import {Cart} from "../src/pages/Cart"
+import {ShopCart} from "../src/pages/ShopCart"
 import {CartContextProvider} from "../src/context/cartContext"
 
 
@@ -26,7 +26,7 @@ function App() {
           <Store/>
         </Route>
         <Route path="/cart">
-          <Cart/>
+          <ShopCart/>
         </Route>
 
       </Switch>

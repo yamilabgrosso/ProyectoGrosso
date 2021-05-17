@@ -23,11 +23,11 @@ export const ItemList = () => {
 
   return (
     <div className='cardConteiner'>
-      {products.map((product, key) =>
+      {products.map((product) =>
         <div>
           <Item
-          key={key}
-           productId={product.id}
+            key={product.id}
+            productId={product.id}
             name={product.name}
             picture={product.image}
             price={`$ ${product.price}`}
