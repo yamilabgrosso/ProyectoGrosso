@@ -1,11 +1,11 @@
-import { useState} from "react"
+import { useState } from "react"
 import { ItemCount } from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
 import { useContext } from 'react';
 import { CartContext } from "../../context/cartContext"
 
 
-export const ItemDetail = ({ props, product }) => {
+export const ItemDetail = ({ product }) => {
   const [buttonAddToCart, setButtonAddToCart] = useState(false)
   const [stock, setStock] = useState(0)
 
@@ -13,13 +13,13 @@ export const ItemDetail = ({ props, product }) => {
   const addQuantity = () => {
     if (stock <= 4) {
       setStock(stock + 1)
-    } 
+    }
   }
 
   const substractQuantity = () => {
     if (stock >= 1) {
       setStock(stock - 1)
-    } 
+    }
   }
 
   const buyThisQuantity = () => {
@@ -27,25 +27,24 @@ export const ItemDetail = ({ props, product }) => {
       setButtonAddToCart(true)
       addItem(product, stock)
       setStock(stock)
-  }}
+    }
+  }
 
 
-
-
-  const {addItem, quantities} = useContext(CartContext)  
-  console.log(quantities)
+  const { addItem } = useContext(CartContext)
+  
 
   return (
-    <div className="detailContainer">
+    <div key= {product.id}className="detailContainer">
       <div className="bodyDetail">
-        <p className="titleDetail">{props.name}</p>
-        <img className="imageDetail" src={props.image} alt="Imagen detalle" />
+        <p className="titleDetail">{product.name}</p>
+        <img className="imageDetail" src={product.image} alt="Imagen detalle" />
       </div>
       <div className="areaDetail">
         <p className="descriptionDetail">Soy un buen producto</p>
-        <p className="priceDetail">$ {props.price}</p>
+        <p className="priceDetail">$ {product.price}</p>
 
-        {(buttonAddToCart) === false  ? (
+        {(buttonAddToCart) === false ? (
           <ItemCount
             add={addQuantity}
             substract={substractQuantity}
@@ -53,7 +52,7 @@ export const ItemDetail = ({ props, product }) => {
             onAdd={buyThisQuantity}
           />
         ) : (
-         <Link to= "/cart" ><button className='addCart' >Finalizar compra</button></Link>
+          <Link to="/cart" ><button className='addCart' >Finalizar compra</button></Link>
         )}
 
 

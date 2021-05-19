@@ -1,27 +1,39 @@
 import { useParams } from 'react-router'
-import { Index } from "../Index"
 import "./ItemDetailConteiner.css"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { useState, useEffect } from 'react'
+import { getFirestore } from "../Firebase/Index"
 
 export const ItemDetailConteiner = () => {
+
   const { productId } = useParams()
-  const [product, setProduct] = useState([])
- 
+  const [item, setItem] = useState([])
   
+
   useEffect(() => {
-    const productFind = Index.find((product) => product.id === productId)
-    setProduct(productFind)
+    if(productId) {
+        const getDetails = async () => {
+            const db = getFirestore()
+            const itemCollection = await db.collection('Items').doc(productId)
+            const prod = await itemCollection.get()
+            if(prod.exists) {
+                setItem({
+                  id: prod.id,
+                  ...prod.data()})
+            } 
+        }
+      getDetails()
+    }
+    }, [productId])
 
-  }, [productId])
-
-  return(
+  return (
     <main>
-      <ItemDetail 
-        props={product}
-        product={product}
+      <ItemDetail
+        product={item}
       />
 
     </main>
   )
 }
+
+export default ItemDetailConteiner
