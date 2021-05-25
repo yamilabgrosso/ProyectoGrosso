@@ -2,10 +2,11 @@ import { useParams } from 'react-router'
 import { useState } from "react"
 import { useEffect } from "react"
 import { Item } from "../Item/Item"
+import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index"
 
 
-export const Categories = (props) => {
+export const Categories = () => {
 
   let { categoryId } = useParams()
   const [categories, setCategories] = useState([]);
@@ -38,8 +39,9 @@ export const Categories = (props) => {
         <p>No hay nada en esta categoria</p>
       ) : (
         categories.map((product) =>
-          <div>
-            <Item productId={product.id}
+          <div key = {product.id}>
+            <Item 
+              productId={product.id}
               name={product.name}
               picture={product.image}
               price={`$ ${product.price}`}
@@ -47,6 +49,6 @@ export const Categories = (props) => {
           </div>
         )
       )}
-    </div >
+    </div>
   )
 }

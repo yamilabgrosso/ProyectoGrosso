@@ -1,4 +1,4 @@
-
+import "firebase/firestore"
 import { getFirestore } from "../Index"
 
 export const getCollection = (collectionName) => {

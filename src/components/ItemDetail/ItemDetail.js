@@ -7,11 +7,11 @@ import { CartContext } from "../../context/cartContext"
 
 export const ItemDetail = ({ product }) => {
   const [buttonAddToCart, setButtonAddToCart] = useState(false)
-  const [stock, setStock] = useState(0)
+  const [stock, setStock] = useState(1)
 
 
   const addQuantity = () => {
-    if (stock <= 4) {
+    if (stock < product.stock) {
       setStock(stock + 1)
     }
   }
