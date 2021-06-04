@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom"
 import { Fragment, useContext } from 'react'
 import { CartContext } from '../../context/cartContext';
 import logoCart from "../../logoCart.ico";
+import "./CartWidget.css"
 
 export const CartWidget = () => {
     const { countProd, cart } = useContext(CartContext)
@@ -10,10 +11,10 @@ export const CartWidget = () => {
         <Fragment>
         {cart.length !== 0 ? (
                 <Fragment>
-                    <NavLink activeClassName="" className="" exact to='/cart'>
+                    <NavLink activeClassName="activeCart" className="cart" exact to='/cart'>
                         <img src={logoCart} className="logoCart" alt="logo cart" />
-                        ({countProd()})
-                    </NavLink>
+                        {countProd()}
+                    </NavLink>   
                 </Fragment>
             ) : ("")
         }   

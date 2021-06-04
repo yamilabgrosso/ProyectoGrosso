@@ -4,7 +4,10 @@ import { Link } from "react-router-dom"
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index";
-
+import "./Cart.css"
+import React from 'react';
+import LottieAnimation from '../Animaciones/Animaciones';
+import home from '../Animaciones/47781-empty-cart.json';
 
 export const Cart = () => {
 
@@ -61,11 +64,11 @@ export const Cart = () => {
                     setCart([])
                 } else {
                     console.log("ya no hay stock")
-                    setButtonDisabled(true)  
+                    setButtonDisabled(true)
                 }
 
-                    // el disabled del boton no me esta funcionando,  son casi las 23, y por las dudas entrego
-                    // ahora, si mañana lo arreglo, te vuelvo a pasar el link
+                // el disabled del boton no me esta funcionando,  son casi las 23, y por las dudas entrego
+                // ahora, si mañana lo arreglo, te vuelvo a pasar el link
 
             })
             batch.commit()
@@ -77,32 +80,34 @@ export const Cart = () => {
     }
     return (
         <Fragment>
-            <h3>Carrito de compras</h3>
+            <h3 className="title">My Cart</h3>
             {cart.length === 0 ? (
                 <Fragment>
-                    <h5>Aún no hay productos en tu carrito</h5>
-                    <Link to="/products">Volver al Menú principal</Link>
+                    <h5 className="emptyCart">There are no products in your shopping cart</h5>
+                    <LottieAnimation lotti={home} height={400} width={400} />
                 </Fragment>
             ) : (
-
                 cart.map((itemInCart) => {
                     return (
-
-                        <div
+                        <div className="productsInCart"
                             key={itemInCart.id}
                             id={itemInCart.id}>
-                            <h3>{itemInCart.name}</h3>
-                            <img src={itemInCart.image} alt="Imagen detalle" />
-                            <p>Cantidad : {itemInCart.quantity}</p>
-                            <p>Stock disponible : {itemInCart.stock}</p>
-                            <p>Precio   :${itemInCart.price * itemInCart.quantity}</p>
-                            <button onClick={() => removeItem(itemInCart.id)}>Eliminar producto</button>
+                            <img className="productImage" src={itemInCart.image} alt="Imagen detalle" />
+                            <h4 className="productName">{itemInCart.name}</h4>
+                            <p className="productQuantity">{itemInCart.quantity}</p>
+                            {/* <p className="productStock">Stock disponible : {itemInCart.stock}</p> */}
+                            <p className="productPrice">${itemInCart.price * itemInCart.quantity}</p>
+                            <p className="removeProduct" onClick={() => removeItem(itemInCart.id)}>X</p>
                         </div>
                     )
                 })
+                
             )}
-            <p>Total ${price()}</p>
-            <button onClick={clear}>Vaciar Carrito</button>
+            <div className="endCart">
+                <p className="totalPrice">Total ${price()}</p>
+                <button className="clearCart" onClick={clear}>Clear cart</button>
+                <Link to="/products"><button className="backToStore">Back to Store</button></Link>
+            </div>
 
             <form>
                 <div>
@@ -112,6 +117,10 @@ export const Cart = () => {
                 <div>
                     <label htmlFor="">Email: </label>
                     <input type="text" onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div>
+                    <label htmlFor="">Phone: </label>
+                    <input type="number" onChange={(e) => setPhone(e.target.value)} />
                 </div>
                 <div>
                     <label htmlFor="">Phone: </label>

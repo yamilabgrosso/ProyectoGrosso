@@ -1,38 +1,39 @@
 .itemCount{  
+background-color: rgb(255, 255, 255);
+display: flex;
 
 }
-
-.countProducts{
+.counterProducts{
     display: flex;
-    justify-content:space-around;
-    padding: 0px 50px;   
-    
+    justify-content: space-between;
+    align-items: center;   
+    margin: 10px;
+    padding: 0px 26px;
 }
-
 .subtractProducts{
-    background-color:#ffffff;
     color:#030318;
-    border: none;    
+    border: none; 
+    height: 18px;   
 }
-   
+.quantity{
+    font-weight:bold;
+}   
 .addProducts{
-    background-color:#ffffff;
     color:#030318;
     border: none;
+    height: 18px;
 }
-
 .botonAddToCart{
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+
 }
-
-.addToCart{
-    
-    background-color:#ffffff;
-    color:  #030318;
-  
-
-
-
+.addToCart{   
+    background-color:#0a0a33;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color:  #ffffff;
+    border-radius: 8%;
+    padding: 10px 40px;
+    margin: 7px;
 }

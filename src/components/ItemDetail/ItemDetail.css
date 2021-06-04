@@ -1,0 +1,52 @@
+.detailContainer{
+background-color: #fdfdfd;
+}
+.bodyDetail{
+    margin: 10px;
+    align-items: center;
+}
+.titleDetail{
+max-width: 350px;
+font-weight:bold;
+
+}
+img.imageDetail{
+    display:block;
+    margin: auto;
+    width: 70%; 
+    padding: 15px;   
+}
+.areaDetail{
+    grid-column-start: 2;
+    background-color: #f8fafa;
+ 
+}
+
+.priceDetail{
+    font-size:x-large;
+    color: #630a0a;
+    }
+
+.descriptionDetail{
+    color:#4d4d4d
+}
+
+@media only screen and (min-width: 768px) {
+     /* For desktop: */
+    .detailContainer{
+        background-color: #fdfdfd;
+        display: flex;
+        }  
+
+    .col-1 {width: 60%;}
+    .col-2 {width: 70%;}
+}
+
+.addCart{
+    background-color:#0a0a33;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color:  #ffffff;
+    border-radius: 8%;
+    padding: 10px 40px;
+    margin: 7px;   
+}
