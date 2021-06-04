@@ -39,21 +39,21 @@ export const Categories = () => {
   return (
 
     <Fragment>
-      { emptyCategory ? (
-        <LottieAnimation lotti={noCategory} height={400} width={300} />
-      ) :
-      <div>( 
-          categories.map((product) =>
-            <div key={product.id}>
-              <Item
-                productId={product.id}
-                name={product.name}
-                picture={product.image}
-                price={`$ ${product.price}`}
-              />
-            </div>
-          ) 
-        )</div>}
-    </Fragment>
+      { emptyCategory && <LottieAnimation lotti={noCategory} height={400} width={300} />}
+      <div className="cardConteiner">
+      {!emptyCategory &&
+        categories.map((product) => (
+          <div key={product.id}>
+            <Item
+              productId={product.id}
+              name={product.name}
+              picture={product.image}
+              price={`$ ${product.price}`}
+            />
+          </div>
+        ))
+      }
+      </div>
+    </Fragment >
   )
 }
