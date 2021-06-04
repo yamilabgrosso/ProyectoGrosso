@@ -1,9 +1,13 @@
 import { useParams } from 'react-router'
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import { useEffect } from "react"
 import { Item } from "../Item/Item"
 import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index"
+import React from 'react';
+import LottieAnimation from '../Animaciones/Animaciones';
+import noCategory from '../Animaciones/8912-empty-category.json';
+import "./Categories.css"
 
 
 export const Categories = () => {
@@ -34,21 +38,22 @@ export const Categories = () => {
 
   return (
 
-    <div className='cardConteiner'>
-      {emptyCategory ? (
-        <p>No hay nada en esta categoria</p>
-      ) : (
-        categories.map((product) =>
-          <div key = {product.id}>
-            <Item 
-              productId={product.id}
-              name={product.name}
-              picture={product.image}
-              price={`$ ${product.price}`}
-            />
-          </div>
-        )
-      )}
-    </div>
+    <Fragment>
+      { emptyCategory ? (
+        <LottieAnimation lotti={noCategory} height={400} width={300} />
+      ) :
+      <div>( 
+          categories.map((product) =>
+            <div key={product.id}>
+              <Item
+                productId={product.id}
+                name={product.name}
+                picture={product.image}
+                price={`$ ${product.price}`}
+              />
+            </div>
+          ) 
+        )</div>}
+    </Fragment>
   )
 }
