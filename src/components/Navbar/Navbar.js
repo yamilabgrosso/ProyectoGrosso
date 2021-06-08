@@ -1,8 +1,7 @@
 import "./Navbar.css"
-import logo from "../../logostore2.png";
+import logo from "../../logo_transparent.png";
 import { NavLink } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
-import { Search } from "../Search/Search"
 export const Navbar = (props) => {
 
   return (
@@ -32,9 +31,7 @@ export const Navbar = (props) => {
       <div className="logoandseeker">
         <div className="topbarIntro">
           <img src={logo} className="logo" alt="logo" />
-          <h4 className="name">LEBRONSTORE</h4>
         </div>
-        <Search />
       </div>
 
 

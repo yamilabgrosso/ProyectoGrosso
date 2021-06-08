@@ -23,9 +23,9 @@
     background-color: #020215;
   }
   .logo {
-    width: 90px;
+    width: 150px;
     padding-top: 10px;
-    border-radius: 50%; 
+
   }
   .name{
     size: 12px;
@@ -33,18 +33,7 @@
     margin-left: 5px;
     color: #ffffff;
   }
-  .seeker{
-    justify-content: flex-end;
-  }
-  .search{
-    border-radius: 5%;
-    border: turquoise;
-  }
-  .lupa{
-background-color:#ffffff;
-margin-top: 15px;
-width: 16px;
-  }
+
 .topbarCategories{
   display: flex;
   justify-content: center;
@@ -52,12 +41,11 @@ width: 16px;
   align-items: center;
   width: 100%;
   border-bottom: 1px solid; 
-  background-color: #2c1f42;
+  background-color: #06428b;
 }
 a.linkToCategories{
   margin: 1px;
   padding: 8px 29px;
-  font-weight: bold; 
   color:white;
   text-decoration: none;
 }

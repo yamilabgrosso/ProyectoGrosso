@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Item } from "../Item/Item"
 import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index"
+import "./ItemList.css"
 
 export const ItemList = () => {
   const [items, setItems] = useState([])
@@ -28,7 +29,7 @@ export const ItemList = () => {
   }, []);
 
   return (
-    <div className='cardConteiner'>
+    <div className='cardContainer'>
       {isEmpty ? (
         <p>No hay nada aquí</p>
       ) : (

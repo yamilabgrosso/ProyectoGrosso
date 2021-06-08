@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { CartContext } from "../../../src/context/cartContext"
 import { Link } from "react-router-dom"
 import firebase from 'firebase/app';
@@ -8,21 +8,66 @@ import "./Cart.css"
 import React from 'react';
 import LottieAnimation from '../Animaciones/Animaciones';
 import home from '../Animaciones/47781-empty-cart.json';
+import { Form } from "../Form/Form"
 
 export const Cart = () => {
 
     const { cart, clear, removeItem, price, setCart } = useContext(CartContext)
 
-    const [buttonDisabled, setButtonDisabled] = useState(false)
+    const [form, setForm] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        card: "",
+        expiration: "",
+        code: ""
+    })
+    const [isDisabledButton, setIsDisabledbutton] = useState(true)
 
-    const [name, setName] = useState();
-    const [phone, setPhone] = useState();
-    const [email, setEmail] = useState();
+    const formFields = [
+        {
+            id: "name",
+            label: "Name",
+            value: form.name,
+            required: true
+        },
+        {
+            id: "phone",
+            label: "Phone",
+            value: form.phone,
+            required: true
+            
+        },
+        {
+            id: "email",
+            label: "Email",
+            value: form.email,
+            required: true
 
-    const userInfo = {
-        name,
-        phone,
-        email
+        },
+        {
+            id: "card",
+            label: "Card",
+            value: form.card,
+            required: true
+        },
+        {
+            id: "expiration",
+            label: "Expiration",
+            value: form.expiration,
+            required: true
+        },
+        {
+            id: "code",
+            label: "Code",
+            value: form.code,
+            required: true
+        },
+    ]
+
+    const handleForm = (id, value) => {
+        const newForm = { ...form, [id]: value }
+        setForm(newForm)
     }
 
     let purchasedProducts = []
@@ -41,12 +86,11 @@ export const Cart = () => {
 
         const order = db.collection("orders")
         const newOrder = {
-            buyer: userInfo,
+            buyer: form,
             items: purchasedProducts,
             date: firebase.firestore.Timestamp.fromDate(new Date()),
             total: price()
         }
-
 
         const IsPosibleToBuy = (stock, quantity) => {
             return stock >= quantity
@@ -63,12 +107,9 @@ export const Cart = () => {
                     })
                     setCart([])
                 } else {
-                    console.log("ya no hay stock")
-                    setButtonDisabled(true)
+                    alert("no hay stock")
                 }
 
-                // el disabled del boton no me esta funcionando,  son casi las 23, y por las dudas entrego
-                // ahora, si mañana lo arreglo, te vuelvo a pasar el link
 
             })
             batch.commit()
@@ -76,8 +117,14 @@ export const Cart = () => {
             .catch((err) => {
                 console.log(err)
             })
-
     }
+
+    useEffect( () => {
+        const requiredFields = formFields.filter(({required}) => required)
+        const isSomeRequiredFieldEmpty = requiredFields.some(({value}) => !value )
+       setIsDisabledbutton(isSomeRequiredFieldEmpty)
+        }, [form])
+
     return (
         <Fragment>
             <h3 className="title">My Cart</h3>
@@ -95,13 +142,12 @@ export const Cart = () => {
                             <img className="productImage" src={itemInCart.image} alt="Imagen detalle" />
                             <h4 className="productName">{itemInCart.name}</h4>
                             <p className="productQuantity">{itemInCart.quantity}</p>
-                            {/* <p className="productStock">Stock disponible : {itemInCart.stock}</p> */}
                             <p className="productPrice">${itemInCart.price * itemInCart.quantity}</p>
                             <p className="removeProduct" onClick={() => removeItem(itemInCart.id)}>X</p>
                         </div>
                     )
                 })
-                
+
             )}
             <div className="endCart">
                 <p className="totalPrice">Total ${price()}</p>
@@ -109,28 +155,26 @@ export const Cart = () => {
                 <Link to="/products"><button className="backToStore">Back to Store</button></Link>
             </div>
 
-            <form>
-                <div>
-                    <label htmlFor="">Name: </label>
-                    <input type="text" onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="">Email: </label>
-                    <input type="text" onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="">Phone: </label>
-                    <input type="number" onChange={(e) => setPhone(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="">Phone: </label>
-                    <input type="number" onChange={(e) => setPhone(e.target.value)} />
-                </div>
-            </form>
+            <h4 className="formTitle">You need to complete the form to finish shopping</h4>
 
-            <Link to="/">
-                <button onClick={handleFinishShopping} disabled={buttonDisabled} >Finish shopping</button>
-            </Link>
+            <form className="form">
+
+                {formFields.map(({ id, label, value, type }) => (
+                    <Form
+                        key={id}
+                        id={id}
+                        label={label}
+                        value={value}
+                        onChange={handleForm}
+                        type= {type}
+                    />
+                )
+                )}
+
+                <Link to="/">
+                    <button className="finishShoppingButton" disabled= {isDisabledButton} onClick={handleFinishShopping}>Finish shopping</button>
+                </Link>
+            </form>
         </Fragment>
     )
 }
