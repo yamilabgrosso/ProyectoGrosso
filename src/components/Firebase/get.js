@@ -1,5 +1,6 @@
 import "firebase/firestore"
 import { getFirestore } from "../Index"
+import { Error500 } from "../Error 500/Error500"
 
 export const getCollection = (collectionName) => {
   let data
@@ -10,7 +11,7 @@ export const getCollection = (collectionName) => {
     .then((querySnapshot) => {
       querySnapshot.docs.map((doc) => doc.data());
     })
-    .catch((error) => console.log("Firestore error:", error))
+    .catch((error) => <Error500/>)
 
   return data
 }

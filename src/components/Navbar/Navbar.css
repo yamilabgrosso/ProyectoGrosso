@@ -49,6 +49,13 @@ a.linkToCategories{
   color:white;
   text-decoration: none;
 }
+a.activeLinkToPage{
+  background-color: #550a9c11;
+}
+a.activeLinkToCategories{
+  color: #000000;
+}
+
 
 ul.links{
   margin: 0px;

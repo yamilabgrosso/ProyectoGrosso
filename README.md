@@ -10,7 +10,9 @@ Es una ecommerce que vende ropa deportiva puntualmente de nba :basketball:.
 
 :small_red_triangle_down:[Lottie](https://lottiefiles.com) para las animaciones.
 
-:small_red_triangle_down:[React router](https://reactrouter.com)
+:small_red_triangle_down:[React router](https://reactrouter.com) para las rutas de navegación.
+
+:small_red_triangle_down:[Sweat Alert](https://sweetalert.js.org/guides/) para los alert.
 
 
 # Para poder ver mi proyecto podes descargarlo y utilizar en la consola :desktop_computer:
@@ -19,3 +21,6 @@ Es una ecommerce que vende ropa deportiva puntualmente de nba :basketball:.
 
 ### "npm run start"
 
+# Un avance del Home
+
+![LebronStore](src/multimedia/LebronStore.jpg)

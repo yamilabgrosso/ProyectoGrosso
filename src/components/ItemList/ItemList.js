@@ -5,6 +5,7 @@ import { Item } from "../Item/Item"
 import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index"
 import "./ItemList.css"
+import { Error500 } from  "../Error 500/Error500"
 
 export const ItemList = () => {
   const [items, setItems] = useState([])
@@ -25,7 +26,7 @@ export const ItemList = () => {
         })))
         setItems(data)
       })
-      .catch((error) => console.log("Firestore error:", error));
+      .catch((error) => <Error500/>);
   }, []);
 
   return (

@@ -3,13 +3,13 @@ import "firebase/firestore"
 
 const app = firebase.initializeApp({
 
-    apiKey: "AIzaSyCpbRzPSFOjYX-hgllqlq5ED_6y1Khpv2k",
-    authDomain: "lebronjames-store.firebaseapp.com",
-    projectId: "lebronjames-store",
-    storageBucket: "lebronjames-store.appspot.com",
-    messagingSenderId: "504937548472",
-    appId: "1:504937548472:web:aa5812a2e1cfd09495024d",
-    measurementId: "G-KC9BS8S2XL"
+    apiKey:  process.env.REACT_APP_FIRESTORE_APIKEY ,
+    authDomain: process.env.REACT_APP_FIRESTORE_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_FIRESTORE_PROJECTID,
+    storageBucket: process.env.REACT_APP_FIRESTORE_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_FIRESTORE_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_FIRESTORE_APPID,
+    measurementId: process.env.REACT_APP_FIRESTORE_MEASUREMENTID
 }) 
 
 export const getFirebase = () => app

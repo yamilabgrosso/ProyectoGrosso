@@ -13,9 +13,23 @@
     border-bottom: solid 1px #b63776;
     row-gap: 1ch;
     align-items: center;
-    text-align-last: center;
-    
+    text-align-last: center;   
 }
+
+@media only screen and (min-width: 768px) {
+    .productsInCart{
+        grid-template-columns: repeat(15, 2fr); 
+    }
+    .removeProduct{
+        grid-column: 14/15;    
+    }
+    .productQuantity{
+        grid-column: 8/9;
+    }
+    .productPrice{
+        grid-column: 10/11 
+    }}
+
 .productName{
     font-size: x-small;
     grid-column: 2/6;    
@@ -53,7 +67,7 @@
 .clearCart{
     font-size: x-small;
     background-color:#e60a0a;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1px #00000033;
     color:  #ffffff;
     border-radius: 8%;
     padding: 10px 40px;
@@ -62,7 +76,7 @@
 .backToStore{
     font-size: x-small;
     background-color:#0a0a33;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1px #00000033;
     color:  #ffffff;
     border-radius: 8%;
     padding: 10px 40px;
@@ -75,30 +89,12 @@
 .form{
     margin:0 auto;
     padding: 10px;
-    width: 350px;
+    width: 400px;
     background-color:#fbfbfb;
     border-radius: 2%;
     font-size: small;
 }
-.label{
-    color:#828080b3;
-    padding: 1px;
-}
-.normalInput{
-    outline: none;
-}
-.labelCreditCard{
-    color:aqua;
-}
-.cardInput{
-    color:aqua;
-}
-.expInput{
-    color:aqua;
-}
-.codeInput{
-    color:aqua;
-}
+
 .finishShoppingButton{
     font-size: x-small;
     background-color:#29a134;
@@ -106,5 +102,5 @@
     color:  #ffffff;
     border-radius: 8%;
     padding: 10px 40px;
-    margin: 7px;
+    margin: 15px;
 }

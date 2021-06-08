@@ -9,6 +9,9 @@ import React from 'react';
 import LottieAnimation from '../Animaciones/Animaciones';
 import home from '../Animaciones/47781-empty-cart.json';
 import { Form } from "../Form/Form"
+import swal from 'sweetalert'
+import { Error500 } from "../Error 500/Error500"
+
 
 export const Cart = () => {
 
@@ -18,9 +21,10 @@ export const Cart = () => {
         name: "",
         phone: "",
         email: "",
-        card: "",
-        expiration: "",
-        code: ""
+        adress: "",
+        zipcode: "",
+        apartment: "",
+        city: ""
     })
     const [isDisabledButton, setIsDisabledbutton] = useState(true)
 
@@ -29,39 +33,50 @@ export const Cart = () => {
             id: "name",
             label: "Name",
             value: form.name,
-            required: true
+            required: true,
+            type: "text" 
         },
         {
             id: "phone",
             label: "Phone",
             value: form.phone,
-            required: true
-            
+            required: true,
+            type: "tel"   
         },
         {
             id: "email",
             label: "Email",
             value: form.email,
-            required: true
-
+            required: true,
+            type: "email"
         },
         {
-            id: "card",
-            label: "Card",
-            value: form.card,
-            required: true
+            id: "adress",
+            label: "Adress",
+            value: form.adress,
+            required: true,
+            type:"text"
         },
         {
-            id: "expiration",
-            label: "Expiration",
-            value: form.expiration,
-            required: true
+            id: "apartment",
+            label: "Apt, Unit, Ste, Etc",
+            value: form.apartment,
+            required: false,
+            type:"text"
         },
         {
-            id: "code",
-            label: "Code",
-            value: form.code,
-            required: true
+            id: "zipcode",
+            label: "Zipcode",
+            value: form.zipcode,
+            required: true,
+            type:"number"
+        },
+        {
+            id: "city",
+            label: "City",
+            value: form.city,
+            required: true,
+            type:"text"
         },
     ]
 
@@ -98,7 +113,7 @@ export const Cart = () => {
 
         order.add(newOrder).then(() => {
             cart.forEach((item) => {
-
+         
                 const docRef = db.collection("Items").doc(item.id)
 
                 if (IsPosibleToBuy(item.stock, item.quantity)) {
@@ -107,23 +122,22 @@ export const Cart = () => {
                     })
                     setCart([])
                 } else {
-                    alert("no hay stock")
+                    swal("Sorry", (`We only have  ${item.stock} im stock of ${item.name}`))
                 }
-
-
             })
             batch.commit()
         })
             .catch((err) => {
-                console.log(err)
+                <Error500/>
             })
     }
 
-    useEffect( () => {
+    useEffect( () => { 
         const requiredFields = formFields.filter(({required}) => required)
         const isSomeRequiredFieldEmpty = requiredFields.some(({value}) => !value )
        setIsDisabledbutton(isSomeRequiredFieldEmpty)
-        }, [form])
+    }, [form])
+    // eslint-disable-next-line
 
     return (
         <Fragment>
@@ -170,7 +184,6 @@ export const Cart = () => {
                     />
                 )
                 )}
-
                 <Link to="/">
                     <button className="finishShoppingButton" disabled= {isDisabledButton} onClick={handleFinishShopping}>Finish shopping</button>
                 </Link>

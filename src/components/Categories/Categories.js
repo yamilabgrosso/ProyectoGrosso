@@ -8,7 +8,6 @@ import React from 'react';
 import LottieAnimation from '../Animaciones/Animaciones';
 import noCategory from '../Animaciones/8912-empty-category.json';
 import "./Categories.css"
-import {Search} from "../Search/Search"
 import "./Categories.css"
 
 export const Categories = () => {
@@ -40,9 +39,6 @@ export const Categories = () => {
   return (
 
     <Fragment>
-      <Search
-       Items = {categories}     
-      />
       { emptyCategory && <LottieAnimation lotti={noCategory} height={400} width={300} />}
 
       {!emptyCategory &&

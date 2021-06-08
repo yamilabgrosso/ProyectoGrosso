@@ -5,6 +5,7 @@ import {Products} from "../src/pages/Products"
 import {Store} from "../src/pages/Store"
 import {ShopCart} from "../src/pages/ShopCart"
 import {CartContextProvider} from "../src/context/cartContext"
+import {Help} from "../src/pages/Help"
 import {NoRoute} from "../src/components/NoRoute/NoRoute"
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
         </Route>
         <Route path="/cart">
           <ShopCart/>
+        </Route>
+        <Route path="/help">
+          <Help/>
         </Route>
         <Route>
           <NoRoute/>

@@ -1,13 +1,11 @@
 
-
-
-export const Form = ({id,label,value, onChange}) =>{
+export const Form = ({id,label,value,type,onChange}) =>{
      
     return(
         <div>
-            <label>{label}</label>
+            <label><p className="label">{label}</p></label>
             <input
-            type="text"
+            type={type}
             onChange={({target}) => onChange(id,target.value)}
             value={value}
             />

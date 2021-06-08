@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { Fragment, useContext } from 'react'
 import { CartContext } from '../../context/cartContext';
-import logoCart from "../../logoCart.ico";
+import logoCart from "../../multimedia/logoCart.ico";
 import "./CartWidget.css"
 
 export const CartWidget = () => {

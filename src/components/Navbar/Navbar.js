@@ -1,14 +1,15 @@
 import "./Navbar.css"
-import logo from "../../logo_transparent.png";
+import logo from "../../multimedia/1.png";
 import { NavLink } from "react-router-dom"
 import { CartWidget } from "../CartWidget/CartWidget"
-export const Navbar = (props) => {
+
+
+
+export const Navbar = () => {
 
   return (
 
-
     <header className="container">
-
       <div className="topbar">
         <nav className="navigation">
           <ul className="links">
@@ -19,7 +20,7 @@ export const Navbar = (props) => {
               <NavLink activeClassName="activeLinkToPage" className="linkToPage" exact to='/products'>Store</NavLink>
             </li>
             <li className="link">
-              <NavLink activeClassName="activeLinkToPage" className="linkToPage" exact to='/'>Help</NavLink>
+              <NavLink activeClassName="activeLinkToPage" className="linkToPage" exact to='/help'>Help</NavLink>
             </li>
             <li className="link">
               <CartWidget />
@@ -29,11 +30,8 @@ export const Navbar = (props) => {
       </div>
 
       <div className="logoandseeker">
-        <div className="topbarIntro">
           <img src={logo} className="logo" alt="logo" />
-        </div>
       </div>
-
 
       <div className="topbarCategories">
         <nav className="navigation">
