@@ -122,7 +122,7 @@ export const Cart = () => {
                     })
                     setCart([])
                 } else {
-                    swal("Sorry", (`We only have  ${item.stock} im stock of ${item.name}`))
+                    swal("Sorry", (`We only have  ${item.stock} in stock of ${item.name}`))
                 }
             })
             batch.commit()
@@ -132,18 +132,15 @@ export const Cart = () => {
             })
     }
 
-
     useEffect(() => {
-
-        const useEff = () => {
 
             const requiredFields = formFields.filter(({ required }) => required)
             const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value)
             setIsDisabledbutton(isSomeRequiredFieldEmpty)
 
-            useEff() }
-
-        }, [form, formFields]) 
+        }, [form]  )// eslint-disable-line react-hooks/exhaustive-deps 
+        
+        
 
 return (
     <Fragment>
@@ -175,7 +172,7 @@ return (
             <Link to="/products"><button className="backToStore">Back to Store</button></Link>
         </div>
 
-        <h4 className="formTitle">You need to complete the form to finish shopping</h4>
+        <h4 className="formTitle">You need complete the form to finish shopping</h4>
 
         <form className="form">
 

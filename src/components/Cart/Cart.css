@@ -31,7 +31,7 @@
     }}
 
 .productName{
-    font-size: x-small;
+    font-size: small;
     grid-column: 2/6;    
 }
 .productImage{
@@ -41,11 +41,11 @@
     border: solid 1px #d1d0d0;
 }
 .productQuantity{
-    font-size: x-small;
+    font-size: small;
     font-weight: bold;
 }
 .productPrice{
-    font-size: x-small;
+    font-size: small;
     font-weight: bold;
 }
 .removeProduct{
@@ -87,10 +87,10 @@
     font-size: x-large;
 }
 .form{
-    margin:0 auto;
-    padding: 10px;
-    width: 400px;
-    background-color:#fbfbfb;
+    margin:20px auto;
+    padding: 10px 10px;
+    width: 70%;
+    background-color:#faf6f6;
     border-radius: 2%;
     font-size: small;
 }
