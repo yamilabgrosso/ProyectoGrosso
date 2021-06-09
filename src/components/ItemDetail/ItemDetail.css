@@ -24,11 +24,13 @@ img.imageDetail{
 
 .priceDetail{
     font-size:x-large;
-    color: #630a0a;
+    color: #af1b1b;
+    padding: 10px 10px;
     }
 
 .descriptionDetail{
-    color:#4d4d4d
+    color:#4d4d4d;
+    padding: 30px 50px;
 }
 
 @media only screen and (min-width: 768px) {

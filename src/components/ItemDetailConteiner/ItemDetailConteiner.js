@@ -1,5 +1,4 @@
 import { useParams } from 'react-router'
-import "./ItemDetailConteiner.css"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 import { useState, useEffect } from 'react'
 import 'firebase/firestore';

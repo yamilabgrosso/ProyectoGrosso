@@ -9,15 +9,16 @@ export const CartWidget = () => {
 
     return (
         <Fragment>
-        {cart.length !== 0 ? (
+            {cart.length !== 0 ? (
                 <Fragment>
                     <NavLink activeClassName="activeCart" className="cart" exact to='/cart'>
                         <img src={logoCart} className="logoCart" alt="logo cart" />
                         {countProd()}
-                    </NavLink>   
+                    </NavLink>
                 </Fragment>
             ) : ("")
-        }   
-     </Fragment> )}
+            }
+        </Fragment>)
+}
 
-    
+

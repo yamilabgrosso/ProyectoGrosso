@@ -30,9 +30,7 @@ export const ItemDetail = ({ product }) => {
     }
   }
 
-
   const { addItem } = useContext(CartContext)
-
 
   return (
     <div key={product.id} className="detailContainer">
@@ -47,6 +45,7 @@ export const ItemDetail = ({ product }) => {
         </div>
         <div className="counter">
           {(buttonAddToCart) === false ? (
+
             <ItemCount
               add={addQuantity}
               substract={substractQuantity}

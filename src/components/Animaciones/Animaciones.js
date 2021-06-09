@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Lottie from "react-lottie";
 
 export default function LottieAnimation({ lotti, width, height }) {
@@ -12,8 +12,8 @@ export default function LottieAnimation({ lotti, width, height }) {
   };
 
   return (
-    <div>
-      <Lottie options={defaultOptions} height={height} width={width} />
-    </div>
+    <Fragment>    
+        <Lottie options={defaultOptions} height={height} width={width} />
+    </Fragment>
   );
 };

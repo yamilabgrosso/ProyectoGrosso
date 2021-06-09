@@ -3,7 +3,9 @@ import { useState } from "react";
 import 'firebase/firestore';
 import { getFirestore } from "../Firebase/Index";
 import { Link } from "react-router-dom"
-
+import facebook from "../../icon/facebook.ico"
+import instagram from "../../icon/instagram.ico"
+import twitter from "../../icon/twitter.ico"
 
 export const Footer = () => {
 
@@ -26,34 +28,32 @@ export const Footer = () => {
 
   return (
     <div className="main-footer">
-
       <div className="container">
+        
         <div className="row">
-
+          
           {/* Column1 */}
           <div className="col">
             <h4>Information</h4>
-            <ul className="list-unstyled">
-              <li>Point of Sale</li>
-              <li>About us</li>
-              <li>Gift Cards</li>
-            </ul>
+            <p>Point of Sale:</p>
+            <p className="adress"> 545 5th Ave at 45th Street, Nueva York, NY 10017-3609.</p>
           </div>
 
           {/* Column2 */}
           <div className="col">
             <h4>Follow Us</h4>
-            <ul className="list-unstyled">
-              <li><i>Hola</i></li>
-              <li><i>Hola</i></li>
-              <li><i>Hola</i></li>
-            </ul>
+            <a href="https://www.facebook.com/NBAStore">
+              <i><img className="icon" src={facebook} alt="facebook" /></i></a>
+            <a href="https://www.instagram.com/nbastore/">
+              <i><img className="icon" src={instagram} alt="instagram" /></i></a>
+            <a href="https://twitter.com/NBASTORESupport">
+              <i><img className="icon" src={twitter} alt="twitter" /></i></a>
           </div>
 
           {/* Column3 */}
           <div className="col">
             <h4>Stay updated on sales, new items and more</h4>
-            <input className="inputSuscription" required  type="text" onChange={(e) => setEmail(e.target.value)} />
+            <input className="inputSuscription" required type="email" onChange={(e) => setEmail(e.target.value)} />
             <Link to="/products">
               <button className="buttonSuscription" onClick={handleSuscription}>Subscribe & save 10%</button>
             </Link>

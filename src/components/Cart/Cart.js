@@ -34,14 +34,14 @@ export const Cart = () => {
             label: "Name",
             value: form.name,
             required: true,
-            type: "text" 
+            type: "text"
         },
         {
             id: "phone",
             label: "Phone",
             value: form.phone,
             required: true,
-            type: "tel"   
+            type: "tel"
         },
         {
             id: "email",
@@ -55,28 +55,28 @@ export const Cart = () => {
             label: "Adress",
             value: form.adress,
             required: true,
-            type:"text"
+            type: "text"
         },
         {
             id: "apartment",
             label: "Apt, Unit, Ste, Etc",
             value: form.apartment,
             required: false,
-            type:"text"
+            type: "text"
         },
         {
             id: "zipcode",
             label: "Zipcode",
             value: form.zipcode,
             required: true,
-            type:"number"
+            type: "number"
         },
         {
             id: "city",
             label: "City",
             value: form.city,
             required: true,
-            type:"text"
+            type: "text"
         },
     ]
 
@@ -113,7 +113,7 @@ export const Cart = () => {
 
         order.add(newOrder).then(() => {
             cart.forEach((item) => {
-         
+
                 const docRef = db.collection("Items").doc(item.id)
 
                 if (IsPosibleToBuy(item.stock, item.quantity)) {
@@ -128,66 +128,72 @@ export const Cart = () => {
             batch.commit()
         })
             .catch((err) => {
-                <Error500/>
+                <Error500 />
             })
     }
 
-    useEffect( () => { 
-        const requiredFields = formFields.filter(({required}) => required)
-        const isSomeRequiredFieldEmpty = requiredFields.some(({value}) => !value )
-       setIsDisabledbutton(isSomeRequiredFieldEmpty)
-    }, [form])
-    // eslint-disable-next-line
 
-    return (
-        <Fragment>
-            <h3 className="title">My Cart</h3>
-            {cart.length === 0 ? (
-                <Fragment>
-                    <h5 className="emptyCart">There are no products in your shopping cart</h5>
-                    <LottieAnimation lotti={home} height={400} width={400} />
-                </Fragment>
-            ) : (
-                cart.map((itemInCart) => {
-                    return (
-                        <div className="productsInCart"
-                            key={itemInCart.id}
-                            id={itemInCart.id}>
-                            <img className="productImage" src={itemInCart.image} alt="Imagen detalle" />
-                            <h4 className="productName">{itemInCart.name}</h4>
-                            <p className="productQuantity">{itemInCart.quantity}</p>
-                            <p className="productPrice">${itemInCart.price * itemInCart.quantity}</p>
-                            <p className="removeProduct" onClick={() => removeItem(itemInCart.id)}>X</p>
-                        </div>
-                    )
-                })
+    useEffect(() => {
 
-            )}
-            <div className="endCart">
-                <p className="totalPrice">Total ${price()}</p>
-                <button className="clearCart" onClick={clear}>Clear cart</button>
-                <Link to="/products"><button className="backToStore">Back to Store</button></Link>
-            </div>
+        const useEff = () => {
 
-            <h4 className="formTitle">You need to complete the form to finish shopping</h4>
+            const requiredFields = formFields.filter(({ required }) => required)
+            const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value)
+            setIsDisabledbutton(isSomeRequiredFieldEmpty)
 
-            <form className="form">
+            useEff() }
 
-                {formFields.map(({ id, label, value, type }) => (
-                    <Form
-                        key={id}
-                        id={id}
-                        label={label}
-                        value={value}
-                        onChange={handleForm}
-                        type= {type}
-                    />
+        }, [form, formFields]) 
+
+return (
+    <Fragment>
+        <h3 className="title">My Cart</h3>
+        {cart.length === 0 ? (
+            <Fragment>
+                <h5 className="emptyCart">There are no products in your shopping cart</h5>
+                <LottieAnimation lotti={home} height={400} width={400} />
+            </Fragment>
+        ) : (
+            cart.map((itemInCart) => {
+                return (
+                    <div className="productsInCart"
+                        key={itemInCart.id}
+                        id={itemInCart.id}>
+                        <img className="productImage" src={itemInCart.image} alt="Imagen detalle" />
+                        <h4 className="productName">{itemInCart.name}</h4>
+                        <p className="productQuantity">{itemInCart.quantity}</p>
+                        <p className="productPrice">${itemInCart.price * itemInCart.quantity}</p>
+                        <p className="removeProduct" onClick={() => removeItem(itemInCart.id)}>X</p>
+                    </div>
                 )
-                )}
-                <Link to="/">
-                    <button className="finishShoppingButton" disabled= {isDisabledButton} onClick={handleFinishShopping}>Finish shopping</button>
-                </Link>
-            </form>
-        </Fragment>
-    )
+            })
+
+        )}
+        <div className="endCart">
+            <p className="totalPrice">Total ${price()}</p>
+            <button className="clearCart" onClick={clear}>Clear cart</button>
+            <Link to="/products"><button className="backToStore">Back to Store</button></Link>
+        </div>
+
+        <h4 className="formTitle">You need to complete the form to finish shopping</h4>
+
+        <form className="form">
+
+            {formFields.map(({ id, label, value, type }) => (
+                <Form
+                    key={id}
+                    id={id}
+                    label={label}
+                    value={value}
+                    onChange={handleForm}
+                    type={type}
+                />
+            )
+            )}
+            <Link to="/">
+                <button className="finishShoppingButton" disabled={isDisabledButton} onClick={handleFinishShopping}>Finish shopping</button>
+            </Link>
+        </form>
+    </Fragment>
+)
 }
